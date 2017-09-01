@@ -106,7 +106,7 @@ def main2():
 
 def create_board():         # customizable board specifications
     board = []
-    column = [" "] * 30
+    column = ["\033[1;44m.\033[0m"] * 30
     for i in range(1,10):
         board.append(list(column))
     return board
@@ -125,7 +125,6 @@ def movement(board = [], player_x=0, player_y=0, current_place=""):  #movement f
     next_level = ['%']
     board[3][3] = "0"
     board[2][2] = "0"
-    board[10][10] = "#"
     board[5][5] = "<"
     if current_place == "":
         current_place = board[player_y][player_x]
@@ -280,7 +279,7 @@ def boss(digit_list):
         if score == 3:
             end_time = time.time() - start_time
             print("You won! Your time was", (round(end_time, 2)))
-            (save_high_score)
+            save_high_score()
             break
         player_lives -= 1
         print("chances left: ", player_lives)
@@ -402,7 +401,7 @@ def screen_credits(file_name='credits.txt'):
 
         
 
-#def player_money():
+#def player_money():       
 
 
 def main():
@@ -435,6 +434,7 @@ while True:
         break
     elif run == '3':
         screen_hall_of_fame()
+        break
     elif run == '4':
         print("Welcome to the ROUGE RUNNER game.\nYou went for the evening jogging, but it was dark, foggy and you lost in the woods.\nThere was no one around but the abandoned building. As you decided to cross the non existing doors,\nyou realised that this place is haunted and possesed by weird creatures.\nThe doors you once crossed became a wall. You realised that you are in a labyrinth.\nTo return safely you must find a way out that is located on the opposite part of the building.\nOn your journey you have to concur some random creatures and win the final battle with a boss.\nCollect items that might be useful during the final battle, and collect money. The more you collect, the easier final battle will be.")
         print("\nUse w,s,a,d to move. To collect the item or drink a health potion, press the space bar.")
